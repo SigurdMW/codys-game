@@ -1,0 +1,12 @@
+{
+  "name": "codys-game",
+  "version": "1.0.0",
+  "description": "Get a flying start with CODY",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Sigurd Wahl",
+  "license": "MIT"
+}
