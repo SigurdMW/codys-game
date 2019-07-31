@@ -1,3 +1,4 @@
+import { Background } from './Background';
 import State from "./state";
 import { Draw } from "./Draw";
 
@@ -20,11 +21,15 @@ class Init {
 		ctx.canvas.width = width
 	}
 	public addClickListeners() {
-		const { startButton } = this.state.elements
+		const { startButton, pauseButton } = this.state.elements
 		startButton.addEventListener("click", () => {
-			this.state.startGame()
+			this.state.gameStarted ? this.state.stopGame() : this.state.startGame()
+		})
+		pauseButton.addEventListener("click", () => {
+			this.state.gamePaused ? this.state.pauseGame() : this.state.unpauseGame()
 		})
 	}
 }
 
 new Init()
+new Background()

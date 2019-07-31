@@ -3,6 +3,7 @@ export interface IState {
 		canvas: HTMLCanvasElement
 	}
 	dimensions: {
+		columns: number
 		canvas: {
 			width: number
 			height: number

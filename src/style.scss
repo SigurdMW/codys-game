@@ -1,0 +1,18 @@
+$bodyPadding: 20px;
+
+body {
+	padding: $bodyPadding;
+	margin: 0;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.background-canvas {
+	position: absolute;
+	top: $bodyPadding;
+	left: $bodyPadding;
+	border: none;
+	z-index: -1;
+}

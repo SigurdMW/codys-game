@@ -4,10 +4,8 @@
     ],
     "plugins": [
         "babel-plugin-transform-object-rest-spread",
-        ["transform-runtime",
-            {
-                "polyfill": false,
-                "regenerator": true
-            }]
+        ["@babel/plugin-transform-runtime", {
+			"regenerator": true
+		}]
     ]
 }
