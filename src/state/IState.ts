@@ -7,6 +7,10 @@ export interface IState {
 		canvas: {
 			width: number
 			height: number
+		},
+		player: {
+			width: number
+			height: number
 		}
 	}
 	context: CanvasRenderingContext2D,

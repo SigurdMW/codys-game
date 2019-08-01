@@ -1,5 +1,6 @@
 import { IState } from "./IState";
 import { Elements } from "../Elements";
+import { emptyState } from "./emptyState";
 
 export class State {
 	private static instance: State
@@ -14,27 +15,10 @@ export class State {
 	constructor() {
 		this.elements = new Elements()
 		this.state = {
-			elements: {
-				canvas: this.elements.canvas
-			},
-			dimensions: {
-				columns: 20,
-				canvas: {
-					height: 300,
-					width: 600
-				}
-			},
-			context: this.elements.canvas.getContext("2d") as CanvasRenderingContext2D,
-			positions: {
-				player: {
-					x: 0,
-					y: 0
-				}
-			},
-			game: {
-				started: false,
-				paused: false
-			}
+			...emptyState(
+				this.elements.canvas,
+				this.elements.canvas.getContext("2d") as CanvasRenderingContext2D
+			)
 		}
 	}
 	public get getState() {
@@ -62,6 +46,19 @@ export class State {
 	}
 	public unpauseGame() {
 		this.state = {...this.state, game: {...this.state.game, paused: false}}
+	}
+	// PLAYER
+	public get player() {
+		return this.state.positions.player
+	}
+	public get playerSize() {
+		return this.state.dimensions.player
+	}
+	public movePlayer(obj: {x?: number, y?: number}) {
+		this.state = {...this.state, positions: {...this.state.positions, player: {
+			...this.state.positions.player,
+			...obj
+		}}}
 	}
 }
 
